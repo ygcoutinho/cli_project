@@ -47,4 +47,5 @@ class Student {
     );
   }
   //fromJson
+  factory Student.fromJson(String json) => Student.fromMap(jsonDecode(json));
 }
