@@ -41,11 +41,22 @@ class Student {
       id: map["id"] ?? 0,
       name: map["name"] ?? "",
       age: map["age"] ?? 0,
-      nameCourses: map["nameCourses"] ?? <String>[],
-      courses: map["courses"].map((e) => Course.fromMap(e)).toList() ?? <Course>{},
+      nameCourses: List<String>.from(map["nameCourses"] ?? <String>[]),
+      courses: map["courses"].map<Course>((e) => Course.fromMap(e)).toList() ?? <Course>[],
       address: Address.fromMap(map["address"] ?? <String, dynamic>{}),
     );
   }
   //fromJson
   factory Student.fromJson(String json) => Student.fromMap(jsonDecode(json));
+
+  @override
+  String toString() {
+    return ('''
+              id: $id, 
+               name: $name, 
+               nameCourses: $nameCourses, 
+               courses: $courses, 
+               address: $address
+               ''');
+  }
 }
