@@ -4,15 +4,15 @@ import 'address.dart';
 import 'course.dart';
 
 class Student {
-  int id;
-  String name;
-  int? age;
-  List<String> nameCourses;
-  List<Course> courses;
-  Address address;
+  final int? id;
+  final String name;
+  final int? age;
+  final List<String> nameCourses;
+  final List<Course> courses;
+  final Address address;
 
   Student({
-    required this.id,
+    this.id,
     required this.name,
     this.age,
     required this.nameCourses,
@@ -22,14 +22,17 @@ class Student {
 
   //toMap
   Map<String, dynamic> toMap() {
-    return {
+    final map = <String, dynamic>{
       "id": id,
       "name": name,
-      "age": age ?? 0,
       "nameCourses": nameCourses,
       "courses": courses.map((e) => e.toMap()).toList(),
       "address": address,
     };
+    if (age != 0) {
+      map["age"] = age;
+    }
+    return map;
   }
 
   //toJson
@@ -42,7 +45,7 @@ class Student {
       name: map["name"] ?? "",
       age: map["age"] ?? 0,
       nameCourses: List<String>.from(map["nameCourses"] ?? <String>[]),
-      courses: map["courses"].map<Course>((e) => Course.fromMap(e)).toList() ?? <Course>[],
+      courses: map["courses"]?.map<Course>((e) => Course.fromMap(e)).toList() ?? <Course>[],
       address: Address.fromMap(map["address"] ?? <String, dynamic>{}),
     );
   }
