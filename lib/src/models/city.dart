@@ -9,8 +9,8 @@ class City {
   //toMap
   Map<String, dynamic> toMap() {
     return {
-      "id": id,
-      "name": name,
+      'id': id,
+      'name': name,
     };
   }
 
@@ -24,4 +24,8 @@ class City {
 
   //fromJson
   factory City.fromJson(String json) => City.fromMap(jsonDecode(json));
+  @override
+  String toString() {
+    return ('$id, $name');
+  }
 }

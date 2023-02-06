@@ -55,7 +55,15 @@ class InsertCommand extends Command {
           phone: Phone(ddd: int.parse(studentSplited[7]), phone: studentSplited[8]),
         ),
       );
-      repository.insert(studentModel);
+      //repository.insert(studentModel);
+      var addresss = Address(
+        street: studentSplited[3],
+        number: int.parse(studentSplited[4]),
+        zipCode: studentSplited[5],
+        city: City(id: 1, name: studentSplited[6]),
+        phone: Phone(ddd: int.parse(studentSplited[7]), phone: studentSplited[8]),
+      );
+      print(addresss);
 
       count++;
     }

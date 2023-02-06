@@ -21,11 +21,11 @@ class Address {
   //toMap
   Map<String, dynamic> toMap() {
     return {
-      "street": street,
-      "number": number,
-      "zipCode": zipCode,
-      "city": city.toMap(),
-      "phone": phone.toMap(),
+      'street': street,
+      'number': number,
+      'zipCode': zipCode,
+      'city': city.toMap(),
+      'phone': phone.toMap(),
     };
   }
 
@@ -44,4 +44,8 @@ class Address {
   }
   //fromJson
   factory Address.fromJson(String json) => Address.fromMap(jsonDecode(json));
+  @override
+  String toString() {
+    return ('$street, $number, $zipCode, $city, $phone');
+  }
 }
