@@ -9,8 +9,8 @@ class Phone {
   //toMap
   Map<String, dynamic> toMap() {
     return {
-      "ddd": ddd,
-      "phone": phone,
+      'ddd': ddd,
+      'phone': phone,
     };
   }
 
@@ -19,7 +19,7 @@ class Phone {
 
   //fromMap
   factory Phone.fromMap(Map<String, dynamic> map) {
-    return Phone(ddd: map["ddd"] ?? 0, phone: map["phone"] ?? "");
+    return Phone(ddd: map['ddd'] ?? 0, phone: map['phone'] ?? '');
   }
 
   //fromJson

@@ -23,14 +23,14 @@ class Student {
   //toMap
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{
-      "id": id,
-      "name": name,
-      "nameCourses": nameCourses,
-      "courses": courses.map((e) => e.toMap()).toList(),
-      "address": address,
+      'id': id,
+      'name': name,
+      'nameCourses': nameCourses,
+      'courses': courses.map((e) => e.toMap()).toList(),
+      'address': address,
     };
     if (age != 0) {
-      map["age"] = age;
+      map['age'] = age;
     }
     return map;
   }
@@ -41,12 +41,12 @@ class Student {
   //fromMap
   factory Student.fromMap(Map<String, dynamic> map) {
     return Student(
-      id: map["id"] ?? 0,
-      name: map["name"] ?? "",
-      age: map["age"] ?? 0,
-      nameCourses: List<String>.from(map["nameCourses"] ?? <String>[]),
-      courses: map["courses"]?.map<Course>((e) => Course.fromMap(e)).toList() ?? <Course>[],
-      address: Address.fromMap(map["address"] ?? <String, dynamic>{}),
+      id: map['id'] ?? 0,
+      name: map['name'] ?? '',
+      age: map['age'] ?? 0,
+      nameCourses: List<String>.from(map['nameCourses'] ?? <String>[]),
+      courses: map['courses']?.map<Course>((e) => Course.fromMap(e)).toList() ?? <Course>[],
+      address: Address.fromMap(map['address'] ?? <String, dynamic>{}),
     );
   }
   //fromJson
