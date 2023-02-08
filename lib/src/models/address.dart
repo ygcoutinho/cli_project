@@ -35,17 +35,17 @@ class Address {
   //fromMap
   factory Address.fromMap(Map<String, dynamic> map) {
     return Address(
-      street: map["street"] ?? "",
-      number: map["number"] ?? 0,
-      zipCode: map["zipCode"] ?? "",
-      city: City.fromMap(map["city"] ?? <String, dynamic>{}),
-      phone: Phone.fromMap(map["phone"] ?? <String, dynamic>{}),
+      street: map['street'] ?? '',
+      number: map['number'] ?? 0,
+      zipCode: map['zipCode'] ?? '',
+      city: City.fromMap(map['city'] ?? <String, dynamic>{}),
+      phone: Phone.fromMap(map['phone'] ?? <String, dynamic>{}),
     );
   }
   //fromJson
   factory Address.fromJson(String json) => Address.fromMap(jsonDecode(json));
-  @override
-  String toString() {
-    return ('$street, $number, $zipCode, $city, $phone');
-  }
+  // @override
+  // String toString() {
+  //   return ('$street, $number, $zipCode, $city, $phone');
+  // }
 }

@@ -19,13 +19,13 @@ class City {
 
   //fromMap
   factory City.fromMap(Map<String, dynamic> map) {
-    return City(id: map["id"] ?? 0, name: map["name"] ?? "");
+    return City(id: map['id'] ?? 0, name: map['name'] ?? '');
   }
 
   //fromJson
   factory City.fromJson(String json) => City.fromMap(jsonDecode(json));
-  @override
-  String toString() {
-    return ('$id, $name');
-  }
+  // @override
+  // String toString() {
+  //   return ('$id, $name');
+  // }
 }
