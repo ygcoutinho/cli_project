@@ -18,7 +18,7 @@ class StudentsRepository {
   }
 
   Future<Student> findById(int id) async {
-    final response = await http.get(Uri.parse("https://localhost:8080/students/$id"));
+    final response = await http.get(Uri.parse("http://localhost:8080/students/$id"));
 
     if (response.statusCode != 200) {
       throw Exception();
