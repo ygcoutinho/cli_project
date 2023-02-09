@@ -27,7 +27,7 @@ class Student {
       'name': name,
       'nameCourses': nameCourses,
       'courses': courses.map((e) => e.toMap()).toList(),
-      'address': address,
+      'address': address.toMap(),
     };
     if (age != 0) {
       map['age'] = age;
