@@ -19,19 +19,20 @@ class DeleteCommand extends Command {
 
   @override
   Future<void> run() async {
-    if (argResults?['id'] != '') {
-      final studentId = int.parse(argResults?['id']);
-      final student = await repository.findById(studentId);
-      print('You are certain to delete student ${student.name}? (y/n)');
-      final awnser = stdin.readLineSync()?.toLowerCase();
-      if (awnser == 'y') {
-        await repository.delete(student);
-        print('Student has been deleted');
-      } else {
-        print('Operation cancelled');
-      }
-    } else {
+    final studentId = int.tryParse(argResults?['id']);
+
+    if (studentId == null) {
       print('Student id is required');
+      return;
+    }
+    final student = await repository.findById(studentId);
+    print('You are certain to delete student ${student.name}? (y/n)');
+    final deleteOrNote = stdin.readLineSync()?.toLowerCase();
+    if (deleteOrNote == 'y') {
+      await repository.deleteById(student);
+      print('Student has been deleted');
+    } else {
+      print('Operation cancelled');
     }
   }
 }

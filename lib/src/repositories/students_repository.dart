@@ -54,7 +54,7 @@ class StudentsRepository {
     }
   }
 
-  Future<void> delete(Student student) async {
+  Future<void> deleteById(Student student) async {
     final response = await http.delete(Uri.parse("http://localhost:8080/students/${student.id}"));
     if (response.statusCode != 200) {
       throw Exception();
